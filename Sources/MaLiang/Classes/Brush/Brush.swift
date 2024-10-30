@@ -15,11 +15,7 @@ public struct Pan {
     var force: CGFloat
 
     init(touch: UITouch, on view: UIView) {
-        if #available(iOS 9.1, *) {
-            point = touch.preciseLocation(in: view)
-        } else {
-            point = touch.location(in: view)
-        }
+        point = touch.location(in: view)
         force = touch.force
         
         // force on devices not supporting from a finger is always 0, reset to 0.3
